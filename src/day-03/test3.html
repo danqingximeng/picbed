@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <link rel="stylesheet" href="../css/day03.css"/>
+</head>
+<body>
+<div id="app">
+    <div class="content">
+        <img @click="preImg" class="pre" alt="pre" src="../img/pre.png">
+        <img class="contentImg" alt="one.jpg" v-bind:src="'../img/' + imgArray[index]">
+        <img @click="nextImg" class="next" alt="next" src="../img/next.png">
+    </div>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            imgArray: ["one.jpg", "two.jpg", "three.jpg", "six.jpg", "seven.jpg"],
+            index: 0
+        },
+        methods: {
+            preImg: function () {
+                //当点击上一个时，修改index值减1
+                if (this.index !== 0) {
+                    this.index--;
+                }
+            },
+            nextImg: function () {
+                //当点击下一个时，修改index值加1
+                //因为index是从0开始计数，所以要小于当前数组长度减1
+                if (this.index < this.imgArray.length - 1) {
+                    this.index++;
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

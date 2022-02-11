@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取天气</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.main.js"></script>
+    <link rel="stylesheet" href="../css/weather-day03.css">
+</head>
+<body>
+<div id="app">
+    <h1>天气查询</h1>
+    <div>
+        <input @change="getWeather" v-model="city" type="text" class="search">
+        <input @click="getWeather" type="button" class="doSearch" value="搜索">
+    </div>
+    <ul class="infoList">
+        <li>
+            <span>{{yesterday.date}}</span>
+            <span>
+                <img class="weatherType" v-bind:src="'../img/'+yesterday.type+'.png'">
+                {{yesterday.type}}
+            </span>
+            <span>{{yesterday.high}}</span>
+            <span>{{yesterday.low}}</span>
+            <span>{{yesterday.fx}}</span>
+        </li>
+        <li v-for="item in forecast">
+            <span>{{item.date}}</span>
+            <span>
+                <img class="weatherType" v-bind:src="'../img/'+item.type+'.png'">
+                {{item.type}}
+            </span>
+            <span>{{item.high}}</span>
+            <span>{{item.low}}</span>
+            <span>{{item.fengxiang}}</span>
+        </li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            yesterday: {},/*昨天的天气对象*/
+            forecast: {},/*所有预报天气的数组对象*/
+            city: "广州"
+        },
+        methods: {
+            // 获取当前城市的天气预报
+            getWeather: function () {
+                axios.get("http://wthrcdn.etouch.cn/weather_mini?city=" + this.city)
+                    .then((result) => {
+                        console.log(result);
+                        //将结果做数据解析
+                        if (result.data.status === 1000) {
+                            this.yesterday = result.data.data.yesterday;
+                            this.forecast = result.data.data.forecast;
+                        } else{
+                            if (result.data.status === 1002){
+                                this.city = "广州";
+                            }
+                        }
+                    })
+                    .catch()
+            }
+        },
+        created() {//当前vue对象的构造函数
+            this.getWeather();// 在构造函数中调用获取天气的函数
+        }
+    })
+</script>
+</body>
+</html>

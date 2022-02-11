@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--通过当前show变量的值来控制标签显示还是隐藏-->
+   <!-- <h1>{{"当前随机数是；"+num}}</h1>
+    <h1 v-if="num>0.7">当前随机值大于0.7</h1>
+    <h1 v-else-if="num>0.4 && num<0.7">当前随机值大于0.4小于0.7</h1>
+    <h1 v-else="num<0.4">当前随机值小于0.4</h1>-->
+<!--    <ul>-->
+<!--        v-for循环-->
+<!--        item：只是一个别名，就是当前循环数组中的每个对象-->
+<!--        index：当前循环的索引数字-->
+<!--        <li v-for="(item,index) in nameArray">-->
+<!--            <span>{{"序号是："+(index + 1)}}</span>-->
+<!--            <span>{{"当前姓名是："+item}}</span>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--    <ul id="myul">-->
+<!--    </ul>-->
+
+    <!--v-text：修改页面中标签的文本内容，不会解析标签内部其他标签-->
+    <h1 v-text="msg?'<u>正确1</u>':'错误1'"></h1>
+    <!--v-html：修改页面中标签的文本内容，会解析标签内部其他标签-->
+    <h1 v-html="msg?'<u>正确2</u>':'错误2'"></h1>
+</div>
+<!--<script>
+    var nameArray=["张三","李四","王五","赵六"];
+    var myul = document.getElementById("myul");/*获取当前ul对象的js对象*/
+    /*使用js将当前数组循环展示在页面中*/
+    for (var i = 0; i < nameArray.length; i++) {
+        var html = "<li>" + nameArray[i] + "</li>";
+        myul.append(html);
+    }
+</script>-->
+<script>
+    //js写修改标签内容
+    //document.getElementById("app").innerText = "Hello JavaScript";
+    var myapp = new Vue({/*此处的Vue首字母必须是大写*/
+        /*设置vue对象的挂载，挂载对象不用class对象，因为class会重复，而id是唯一的*/
+        el:"#app",
+        /*data就是当前vue对象的数据对象，是可以放多种数据*/
+        data:{//josn格式，
+            // msg:true
+            // num:Math.random(),/*数字：小数和整数，前端只有number类型*/
+            // bol:true,/*布尔*/
+            // name:"admin",
+            // nameArray:["张三","李四","王五","赵六"]
+        }
+    })
+</script>
+</body>
+</html>

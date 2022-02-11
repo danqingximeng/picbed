@@ -1,0 +1,171 @@
+* { /*去掉所有标签自带的外标签和内标签*/
+    margin: 0;
+    padding: 0;
+}
+
+.publicTop {
+    width: 100%;
+    height: 82px;
+}
+
+.movieInfo {
+    width: 100%;
+    height: 375px;
+    background-image: linear-gradient(to bottom right, #734451, #392f59);
+    display: flex;
+    justify-content: center;
+}
+
+.movieInfo > .infoHead {
+    width: 1200px;
+    height: 100%;
+    position: relative;
+}
+
+
+.movieInfo > .infoHead > .movieImg {
+    padding-left: 27px;
+    width: 300px;
+    height: 330px;
+    position: absolute;
+    top: 20%;
+}
+
+.movieInfo > .infoHead > .movieImg .img {
+    width: 230px;
+    height: 320px;
+    border: 3px solid white;
+}
+
+
+.movieInfo > .infoHead > .movieDetails {
+    width: 250px;
+    height: 300px;
+    position: absolute;
+    left: 300px;
+    top: 20%;
+    color: white;
+}
+
+.movieInfo > .infoHead > .movieDetails > .ChineseName {
+    font-size: 26px;
+}
+
+.movieInfo > .infoHead > .movieDetails > .EnglishName {
+    font-size: 18px;
+}
+
+.movieInfo > .infoHead > .movieDetails > ul {
+    padding: 10px 0;
+    list-style: none;
+    font-size: 14px;
+}
+
+.movieInfo > .infoHead > .movieDetails > ul > li {
+    margin-bottom: 8px;
+}
+
+.movieInfo > .infoHead > .movieDetails > .watch-score-link {
+    width: 250px;
+    height: 36px;
+    position: absolute;
+    top: 190px;
+}
+
+.movieInfo > .infoHead > .movieDetails > .watch-score-link > a {
+    height: 100%;
+    width: 120px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 36px;
+    background-color: #756189;
+    border-radius: 2px;
+}
+
+.movieInfo > .infoHead > .movieDetails > .watch-score-link > .watch-link {
+    position: absolute;
+    left: 0;
+}
+
+.movieInfo > .infoHead > .movieDetails > .watch-score-link > .score-link {
+    position: absolute;
+    right: 0;
+}
+
+.movieInfo > .infoHead > .movieDetails > .special-offer {
+    width: 250px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    top: 235px;
+    color: #ffffff;
+    background-color: #df2d2d;
+    border-radius: 2px;
+}
+
+.movieInfo > .infoHead > .movieScore {
+    width: 130px;
+    height: 150px;
+    position: absolute;
+    top: 60%;
+    left: 640px;
+}
+
+.movieInfo > .infoHead > .movieScore > .sub-tag {
+    color: #ffffff;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.movieInfo > .infoHead > .movieScore > .score-info {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.movieInfo > .infoHead > .movieScore > .score-info > .score {
+    width: 40px;
+    height: 30px;
+    font-size: 30px;
+    line-height: 30px;
+    color: #ffc600;
+}
+
+.movieInfo > .infoHead > .movieScore > .score-info > .score-star {
+    width: 80px;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.movieInfo > .infoHead > .movieScore > .score-info > .score-star > .star-img {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: flex-start;
+}
+.movieInfo > .infoHead > .movieScore > .score-info > .score-star > .score-num {
+    width: 100%;
+    height: 50%;
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 12px;
+}
+
+.movieInfo > .infoHead > .movieScore > .fare-info {
+    width: 100%;
+    height: 30px;
+}
+
+.movieInfo > .infoHead > .movieScore > .fare-info > .total-fare {
+    font-size: 30px;
+    line-height: 30px;
+    color: #ffffff;
+}
+.movieInfo > .infoHead > .movieScore > .fare-info > .sub-wan {
+    font-size: 12px;
+    color: white;
+}

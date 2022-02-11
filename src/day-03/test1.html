@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .testClass{
+            width: 200px;
+            height: 150px;
+        }
+        .imgBackground{
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--第一种：使用true和false放入-->
+    <img v-bind:src="imgSrc" v-bind:name="imgName" v-bind:title="imgTitle"
+         v-bind:class="{'testClass':isActive}" v-bind:alt="imgName">
+    <!--多绑定-->
+    <div v-bind:class="[oneClass,twoClass]"></div>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            imgTitle:"照片标题",
+            imgClass:"testClass",
+            isActive:true,
+            imgSrc:"https://gitee.com/danqingximeng/picbed/raw/main/img/image-20220109233904426.png",
+            imgName:"三种数据交换",
+            oneClass:"imgBackground",
+            twoClass:"testClass"
+        },
+        methods:{
+
+        }
+    })
+</script>
+</body>
+</html>

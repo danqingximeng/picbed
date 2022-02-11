@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.main.js"></script>
+    <link rel="stylesheet" href="../css/details.css">
+</head>
+<body>
+<main id="details">
+    <header class="publicTop">
+        <iframe src="top.html" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
+    </header>
+
+    <main class="movieInfo">
+        <section class="infoHead">
+            <div class="movieImg">
+                <img class="img" v-bind:alt="movieInfo.movieName"
+                     v-bind:src="'../img/maoYanImg/'+movieInfo.movieImgPath">
+            </div>
+            <div class="movieDetails">
+                <h1 class="ChineseName">{{movieInfo.movieName}}</h1>
+                <div class="EnglishName">{{movieInfo.translateName}}</div>
+                <ul>
+                    <li>{{movieInfo.movieType}}</li>
+                    <li>{{movieInfo.producePlace + " / " + movieInfo.movieTimeLength + "分钟"}}</li>
+                    <li>
+                        <time>{{movieInfo.showTime.slice(0,16)}}</time>
+                        {{movieInfo.showPlace + "上映"}}
+                    </li>
+                </ul>
+                <div class="watch-score-link">
+                    <a class="watch-link">
+                        <img alt="心形" width="16" height="16" align="center"
+                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDc1OTZBMzUzQzIzMTFFNkI5NzY4NjMyQkI3QTVCMDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDc1OTZBMzQzQzIzMTFFNkI5NzY4NjMyQkI3QTVCMDAiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozOTE3NDFCODM3NjcxMUU2QUY0Q0YzNTlBNkE3Q0U3MiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozOTE3NDFCOTM3NjcxMUU2QUY0Q0YzNTlBNkE3Q0U3MiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Ptb+IwoAAAC3SURBVHjaYvz//z8DJYAJiZ0CxMeB+BMQvwbi5UCsCcUg9huo3HGoWggAuQCIF//HDn5BMTawGOx6IJH2n3yQxggkrgMdokFmENwEGfADyGAn04C/TNCAIRd8ABmwmQIDNoACUQyIX5ERgCA9YrBoVALiyyRovgzVA08HIMwJxJuJ0LwZqpYB3QAY7sejuR9dPTYDQDgbi+ZsbGpxGQDC7kia3XGpYySQG/Og9CRcChgpzc4AAQYAYXrq/jrniJEAAAAASUVORK5CYII=">
+                        想看
+                    </a>
+                    <a class="score-link">
+                        <img alt="星形" width="16" height="16" align="center"
+                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDc1OTZBM0QzQzIzMTFFNkI5NzY4NjMyQkI3QTVCMDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDc1OTZBM0MzQzIzMTFFNkI5NzY4NjMyQkI3QTVCMDAiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4QzQ3QTgzOTM3NjgxMUU2QUY0Q0YzNTlBNkE3Q0U3MiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QzQ3QTgzQTM3NjgxMUU2QUY0Q0YzNTlBNkE3Q0U3MiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pi0cMmgAAADqSURBVHjaYvz//z8DHtAExAJAnIdLASMeA3iB+BOULQfEj7EpYsJjey8SuwunKpALsOCQ/5ggBJtadAEJIG75jxsUATEbsh5QGLgDHeIDxGZArAfEHAz4wTMg3g/EZ4F4N8iAY0CGJQN54CDIGXpAfPE/6eA5EHvB/CIKxG9J0PwRiBXQAzGRBANikQMR5h9mIH4DTXn4wAsglsSWkP4C8TUiAu4ovpTIQoQBv3AZwAPEWkQYoIjLRnaoISCwG4hXAPEZIOaCppNUINYEYnVcBnyEZqDPQDwTGlgwcAKI9wJxFRDfRzYAIMAAYsNIs6fSEWgAAAAASUVORK5CYII=">
+                        评分
+                    </a>
+                </div>
+                <div class="special-offer">特惠购票</div>
+            </div>
+            <div class="movieScore">
+                <div class="sub-tag">猫眼口碑</div>
+                <div class="score-info">
+                    <span class="score">{{movieInfo.moviePlayingScore}}</span>
+                    <span class="score-star">
+                        <div class="star-img">
+                            <img width="12" height="12" alt="星星" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAABBdpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgICAgICAgICAgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiCiAgICAgICAgICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKTwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8eG1wTU06RG9jdW1lbnRJRD54bXAuZGlkOjA3NTk2QTM5M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06RGVyaXZlZEZyb20gcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICA8c3RSZWY6aW5zdGFuY2VJRD54bXAuaWlkOjhDNDdBODNEMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjppbnN0YW5jZUlEPgogICAgICAgICAgICA8c3RSZWY6ZG9jdW1lbnRJRD54bXAuZGlkOjhDNDdBODNFMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjpkb2N1bWVudElEPgogICAgICAgICA8L3htcE1NOkRlcml2ZWRGcm9tPgogICAgICAgICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOjA3NTk2QTM4M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpJbnN0YW5jZUlEPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KSbv7AwAAAVZJREFUKBVNkb1KQ0EQhc+sm5BYWIkgFjaCaQQ7g11aKxvfwd7Oxh+QgFpY+AIqWPgSQTAGjIgIirUIgmChFnox945nZpOQC3uZPfPN7wIjnyrG7KrX2OXZd/siaUOMkChFvUXJgTamCL/xfGgbs67Rp9sIxg4D3dFCJHiiXSgTKO1TA0choWMcGaYZO0fHOiJW0XNEWVPwh3MojtjYC5bwLtrBGYUG88x4U1kfTmkFFRo/+GXoM63LQPiRxqR3l6GnAxCuKOGciSqsvEg29yE43AaFQ7r6vMMWyjkhYrvLsSnLaKaBPnFM4QZVB4tUxP+FVB3ucM4DU4KtVFZ4Be6RUKtiY6fR0/9KGmyX7xSxlrBCUfZyJTZng1qYpbEk6hawA40iqe8QUEOZzm90ucoHNhcJ1zGBeWo1evyLA4NhLXzhjvtuSh2vpvPhFgjvceVPzm1B/wEemoKi/w27MQAAAABJRU5ErkJggg==">
+                            <img width="12" height="12" alt="星星" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAABBdpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgICAgICAgICAgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiCiAgICAgICAgICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKTwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8eG1wTU06RG9jdW1lbnRJRD54bXAuZGlkOjA3NTk2QTM5M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06RGVyaXZlZEZyb20gcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICA8c3RSZWY6aW5zdGFuY2VJRD54bXAuaWlkOjhDNDdBODNEMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjppbnN0YW5jZUlEPgogICAgICAgICAgICA8c3RSZWY6ZG9jdW1lbnRJRD54bXAuZGlkOjhDNDdBODNFMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjpkb2N1bWVudElEPgogICAgICAgICA8L3htcE1NOkRlcml2ZWRGcm9tPgogICAgICAgICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOjA3NTk2QTM4M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpJbnN0YW5jZUlEPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KSbv7AwAAAVZJREFUKBVNkb1KQ0EQhc+sm5BYWIkgFjaCaQQ7g11aKxvfwd7Oxh+QgFpY+AIqWPgSQTAGjIgIirUIgmChFnox945nZpOQC3uZPfPN7wIjnyrG7KrX2OXZd/siaUOMkChFvUXJgTamCL/xfGgbs67Rp9sIxg4D3dFCJHiiXSgTKO1TA0choWMcGaYZO0fHOiJW0XNEWVPwh3MojtjYC5bwLtrBGYUG88x4U1kfTmkFFRo/+GXoM63LQPiRxqR3l6GnAxCuKOGciSqsvEg29yE43AaFQ7r6vMMWyjkhYrvLsSnLaKaBPnFM4QZVB4tUxP+FVB3ucM4DU4KtVFZ4Be6RUKtiY6fR0/9KGmyX7xSxlrBCUfZyJTZng1qYpbEk6hawA40iqe8QUEOZzm90ucoHNhcJ1zGBeWo1evyLA4NhLXzhjvtuSh2vpvPhFgjvceVPzm1B/wEemoKi/w27MQAAAABJRU5ErkJggg==">
+                            <img width="12" height="12" alt="星星" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAABBdpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgICAgICAgICAgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiCiAgICAgICAgICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKTwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8eG1wTU06RG9jdW1lbnRJRD54bXAuZGlkOjA3NTk2QTM5M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06RGVyaXZlZEZyb20gcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICA8c3RSZWY6aW5zdGFuY2VJRD54bXAuaWlkOjhDNDdBODNEMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjppbnN0YW5jZUlEPgogICAgICAgICAgICA8c3RSZWY6ZG9jdW1lbnRJRD54bXAuZGlkOjhDNDdBODNFMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjpkb2N1bWVudElEPgogICAgICAgICA8L3htcE1NOkRlcml2ZWRGcm9tPgogICAgICAgICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOjA3NTk2QTM4M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpJbnN0YW5jZUlEPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KSbv7AwAAAVZJREFUKBVNkb1KQ0EQhc+sm5BYWIkgFjaCaQQ7g11aKxvfwd7Oxh+QgFpY+AIqWPgSQTAGjIgIirUIgmChFnox945nZpOQC3uZPfPN7wIjnyrG7KrX2OXZd/siaUOMkChFvUXJgTamCL/xfGgbs67Rp9sIxg4D3dFCJHiiXSgTKO1TA0choWMcGaYZO0fHOiJW0XNEWVPwh3MojtjYC5bwLtrBGYUG88x4U1kfTmkFFRo/+GXoM63LQPiRxqR3l6GnAxCuKOGciSqsvEg29yE43AaFQ7r6vMMWyjkhYrvLsSnLaKaBPnFM4QZVB4tUxP+FVB3ucM4DU4KtVFZ4Be6RUKtiY6fR0/9KGmyX7xSxlrBCUfZyJTZng1qYpbEk6hawA40iqe8QUEOZzm90ucoHNhcJ1zGBeWo1evyLA4NhLXzhjvtuSh2vpvPhFgjvceVPzm1B/wEemoKi/w27MQAAAABJRU5ErkJggg==">
+                            <img width="12" height="12" alt="星星" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAABBdpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgICAgICAgICAgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiCiAgICAgICAgICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKTwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8eG1wTU06RG9jdW1lbnRJRD54bXAuZGlkOjA3NTk2QTM5M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06RGVyaXZlZEZyb20gcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICA8c3RSZWY6aW5zdGFuY2VJRD54bXAuaWlkOjhDNDdBODNEMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjppbnN0YW5jZUlEPgogICAgICAgICAgICA8c3RSZWY6ZG9jdW1lbnRJRD54bXAuZGlkOjhDNDdBODNFMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjpkb2N1bWVudElEPgogICAgICAgICA8L3htcE1NOkRlcml2ZWRGcm9tPgogICAgICAgICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOjA3NTk2QTM4M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpJbnN0YW5jZUlEPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KSbv7AwAAAVZJREFUKBVNkb1KQ0EQhc+sm5BYWIkgFjaCaQQ7g11aKxvfwd7Oxh+QgFpY+AIqWPgSQTAGjIgIirUIgmChFnox945nZpOQC3uZPfPN7wIjnyrG7KrX2OXZd/siaUOMkChFvUXJgTamCL/xfGgbs67Rp9sIxg4D3dFCJHiiXSgTKO1TA0choWMcGaYZO0fHOiJW0XNEWVPwh3MojtjYC5bwLtrBGYUG88x4U1kfTmkFFRo/+GXoM63LQPiRxqR3l6GnAxCuKOGciSqsvEg29yE43AaFQ7r6vMMWyjkhYrvLsSnLaKaBPnFM4QZVB4tUxP+FVB3ucM4DU4KtVFZ4Be6RUKtiY6fR0/9KGmyX7xSxlrBCUfZyJTZng1qYpbEk6hawA40iqe8QUEOZzm90ucoHNhcJ1zGBeWo1evyLA4NhLXzhjvtuSh2vpvPhFgjvceVPzm1B/wEemoKi/w27MQAAAABJRU5ErkJggg==">
+                            <img width="12" height="12" alt="星星" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAABBdpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgICAgICAgICAgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiCiAgICAgICAgICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKTwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8eG1wTU06RG9jdW1lbnRJRD54bXAuZGlkOjA3NTk2QTM5M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06RGVyaXZlZEZyb20gcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICA8c3RSZWY6aW5zdGFuY2VJRD54bXAuaWlkOjhDNDdBODNEMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjppbnN0YW5jZUlEPgogICAgICAgICAgICA8c3RSZWY6ZG9jdW1lbnRJRD54bXAuZGlkOjhDNDdBODNFMzc2ODExRTZBRjRDRjM1OUE2QTdDRTcyPC9zdFJlZjpkb2N1bWVudElEPgogICAgICAgICA8L3htcE1NOkRlcml2ZWRGcm9tPgogICAgICAgICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOjA3NTk2QTM4M0MyMzExRTZCOTc2ODYzMkJCN0E1QjAwPC94bXBNTTpJbnN0YW5jZUlEPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KSbv7AwAAAVZJREFUKBVNkb1KQ0EQhc+sm5BYWIkgFjaCaQQ7g11aKxvfwd7Oxh+QgFpY+AIqWPgSQTAGjIgIirUIgmChFnox945nZpOQC3uZPfPN7wIjnyrG7KrX2OXZd/siaUOMkChFvUXJgTamCL/xfGgbs67Rp9sIxg4D3dFCJHiiXSgTKO1TA0choWMcGaYZO0fHOiJW0XNEWVPwh3MojtjYC5bwLtrBGYUG88x4U1kfTmkFFRo/+GXoM63LQPiRxqR3l6GnAxCuKOGciSqsvEg29yE43AaFQ7r6vMMWyjkhYrvLsSnLaKaBPnFM4QZVB4tUxP+FVB3ucM4DU4KtVFZ4Be6RUKtiY6fR0/9KGmyX7xSxlrBCUfZyJTZng1qYpbEk6hawA40iqe8QUEOZzm90ucoHNhcJ1zGBeWo1evyLA4NhLXzhjvtuSh2vpvPhFgjvceVPzm1B/wEemoKi/w27MQAAAABJRU5ErkJggg==">
+                        </div>
+                        <div class="score-num">
+                            <span v-text="(movieInfo.userScoreNum > 100000)?movieInfo.userScoreNum/10000:movieInfo.userScoreNum"></span>
+                            <span v-text="(movieInfo.userScoreNum > 100000)?'万人评分':'人评分'"></span>
+                        </div>
+
+                    </span>
+                </div>
+                <div class="sub-tag">累计票房</div>
+                <div class="fare-info">
+                    <span class="total-fare"
+                          v-text="movieInfo.movieFareTotal>10000?movieInfo.movieFareTotal/10000:movieInfo.movieFareTotal"></span>
+                    <span class="sub-wan" v-text="movieInfo.movieFareTotal>10000?'亿':'万'"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+</main>
+<script>
+    //从请求中获取到参数，使用的是js的方法
+    var urlDate = new URLSearchParams(location.search);
+    var id = urlDate.get("id");
+    //获取到电影的id，根据id访问后台将后台数据解析并展示在当前页面
+    new Vue({
+        el: "#details",
+        data: {
+            movieInfo: {},
+        },
+        methods: {
+            getMovieInfo: function () {
+                axios.get("http://124.222.57.148:8088/getMovieById?id=" + id)
+                    .then((result) => {
+                        this.movieInfo = result.data;
+                        console.log(result);
+                    })
+                    .catch((error) => {
+                        alert(error)
+                    })
+            }
+        },
+        created() {
+            this.getMovieInfo();
+        }
+    })
+</script>
+</body>
+</html>

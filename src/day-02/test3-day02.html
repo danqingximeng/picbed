@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #app {
+            margin: auto;
+            width: 300px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .cont {
+            width: 100%;
+            height: 25px;
+            border: 1px solid black;
+            outline: none;
+        }
+        li{
+            height: 30px;
+        }
+        /*.del{*/
+        /*    display: none;*/
+        /*}*/
+        /*li:hover>.del{*/
+        /*    display: inline;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="app">
+    <input class="cont" @change="getContent" v-model="content" type="text" placeholder="请输入内容">
+    <ul>
+        <li v-for="(item,index) in contentArray">
+            <span>{{(index + 1)}}</span>
+            <span @mouseover="doShow(index)" @mouseout="doHide(index)">{{item[0]}}
+            <input v-show="index === contentIndex" class="del" @click="del(index)" type="button" value="删除"></span>
+        </li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            content: "",
+            contentArray: [["测试内容",false]],
+            contentIndex: -1
+        },
+        methods: {
+            /*当输入框的内容发生改变时，表示用户输入的值，将输入的值添加到数组中*/
+            getContent: function () {
+                if (this.content !== "") {
+                    this.contentArray.push([this.content,false]);
+                    /*每次添加成功后，将input的内容清空*/
+                    this.content = "";
+                }
+            },
+            del: function (index) {
+                this.contentArray.splice(index, 1);
+            },
+            doShow: function (index) {
+                /*改变contentIndex的值*/
+                this.contentIndex = index;
+            },
+            doHide:function (index){
+                /*初始化contentIndex*/
+                this.contentIndex = -1;
+            }
+        }
+    })
+</script>
+</body>
+</html>

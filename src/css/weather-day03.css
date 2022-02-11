@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#app {
+    margin: 200px auto;
+    width: 60%;
+    height: 300px;
+    border: 1px solid blue;
+    display: flex; /*弹性盒子*/
+    flex-direction: column; /*盒子元素排列方式：行排*/
+    justify-content: center; /*一行中元素的对其方式*/
+    align-items: center; /*盒子中元素的副轴对其方式*/
+}
+
+#app .search {
+    width: 600px;
+    height: 40px;
+    border: 1px solid #c6b3b3;
+    outline: none;
+}
+
+#app .doSearch {
+    width: 60px;
+    height: 40px;
+    background-color: #7e7eec;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#app > .infoList {
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+#app > .infoList li {
+    width: 16%;
+    height: 100%;
+    border-right: 1px solid #d4d4ec;/*li的右边框*/
+    display: flex;/*li里面的元素的排列方式*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#app > .infoList .weatherType{
+    width: 20px;
+    height: auto;
+}

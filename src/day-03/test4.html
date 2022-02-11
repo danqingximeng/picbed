@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取笑话</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.main.js"></script>
+</head>
+<body>
+<div id="app">
+    <input @click="getJoke" type="button" value="点击获取一条笑话">
+    <div>
+        <ul>
+            <li v-for="item in jokes">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            jokes: []
+        },
+        methods: {
+            getJoke: function () {
+                //使用axios进行网络请求的访问
+                axios.get("https://autumnfish.cn/api/joke/list?num=3")
+                    //箭头函数
+                    .then((result)=> {
+                        //请求成功后的结果打印在控制台中
+                        console.log(result)
+                        this.jokes = result.data.jokes
+                    })//请求发送成功后的回调，获取请求成功后的结果的回调
+                    .catch()//请求发送失败后的回调，获取请求发送失败后的异常
+            }
+        }
+    })
+</script>
+</body>
+</html>

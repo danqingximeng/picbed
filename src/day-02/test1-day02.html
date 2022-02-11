@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1-day02</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--click：鼠标点击事件-->
+    <input @click="doClick" type="button" value="尝试点击一下"><br>
+    <!--keydown：键盘按键按下事件-->
+    <input @keydown.enter="doClick" type="text" placeholder="请输入你的账号"><br>
+    <!--focus：获取焦点事件    blur：失去焦点事件-->
+    <input id="1" @focus="doFocus" @blur="doBlur" type="text" placeholder="测试focus & blur事件"><br>
+    <!--mouseover：鼠标悬停移入自动触发的事件  mouseout：鼠标悬停移开自动触发事件-->
+    <img @mouseover="doFocus" @mouseout="doBlur" src="https://gitee.com/danqingximeng/picbed/raw/main/img/image-20220109233904426.png"><br>
+    <!--change：当鼠标进入input前和鼠标失去对标签焦点时，两次的值不一致时触发-->
+    <input @change="change" placeholder="测试change事件"><br>
+</div>
+<script>
+    var myApp = new Vue({/*此处的Vue首字母必须是大写字母*/
+        /*设置vue对象的挂载，挂载对象不用class对象，因为class会重复，而id是唯一的*/
+        el: "#app",
+        /*data就是当前vue对象的数据对象，是可以放多种数据*/
+        data: {},
+        methods: {
+            /*函数定义在methods内部，注意有s，不要写成method*/
+            doClick: function () {
+                alert("此时你点击了一下")
+            },
+            doFocus: function () {
+                console.log("触发了获取焦点事件")
+            },
+            doBlur: function () {
+                console.log("触发了失去焦点事件")
+            },
+            change: function () {
+                console.log("触发了change事件")
+            }
+        }
+    })
+</script>
+</body>
+</html>

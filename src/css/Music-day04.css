@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding-left: 0;
+}
+
+body {
+    background: url("../img/music_bg.jpg") no-repeat;
+    background-size: 200%;
+}
+
+#myMusic {
+    margin: 80px auto;
+    width: 60%;
+    height: 600px;
+    border: 1px solid blue;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#myMusic > .top {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#myMusic > .top > .searchText {
+    width: 70%;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    outline: none;
+}
+
+#myMusic > .top > .doSearch {
+    width: 10%;
+    height: 30px;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background-color: #7e7eec;
+    color: white;
+    cursor: pointer;
+}
+
+#myMusic > .middle {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#myMusic > .middle > .musicList {
+    width: 30%;
+    height: 100%;
+    /*background-color: #7e7eec;*/
+}
+
+#myMusic > .middle > .musicList > ul {
+    width: 100%;
+    height: 100%;
+    overflow: hidden auto; /*超出部分隐藏*/
+    list-style: none;
+}
+
+#myMusic > .middle > .musicList > ul > li {
+    margin-bottom: 10px;
+}
+
+#myMusic > .middle > .musicList > ul > li > .play {
+    width: 20px;
+    vertical-align: middle; /*vertical-align: middle：让文字跟如片上下居中*/
+    cursor: pointer;
+}
+
+#myMusic > .middle > .musicInfo {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#myMusic > .middle > .musicInfo > .musicPlayerImg {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c6b3b3;
+}
+
+#myMusic > .middle > .musicInfo .musicImg {
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+    /*
+    rotation：当前动画执行的关键帧
+    10s：一次动画完成所需的时间
+    linear：当前动画执行的效果，线性匀速执行
+    infinite：无线执行动画
+    running：动画执行    paused：动画停止
+    */
+    animation: rotation 20s linear infinite paused;
+}
+/*关键帧*/
+@keyframes rotation {
+    to{
+        /*transform：css3中的旋转    rotateZ：在Z轴旋转，就是中心点旋转*/
+        transform: rotateZ(1turn);
+    }
+}
+
+#myMusic > .middle > .musicInfo > .musicComment {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #9aefdd;
+
+}
+#myMusic > .middle > .musicInfo > .musicComment > ul{
+    overflow: hidden auto;
+    list-style: none;
+}
+#myMusic > .middle > .musicInfo > .musicComment > ul > li{
+    margin: 10px;
+}
+
+
+#myMusic > .bottom {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#myMusic > .bottom > #myAudio {
+    width: 80%;
+    height: 60%;
+}

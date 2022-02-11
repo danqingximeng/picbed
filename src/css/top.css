@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+body {
+    overflow: hidden;
+}
+
+.top {
+    width: 100%;
+    min-width: 1200px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #e5e3e3;
+    border-bottom: 1px solid #e5e3e3;
+}
+
+.top > .logo {
+    width: 133px;
+    height: 100%;
+    display: flex; /*不设置flex-direction的时候，默认行排列*/
+    justify-content: center; /*左右居中*/
+    align-items: center; /*上下居中*/
+    cursor: pointer;
+}
+
+.top > .city {
+    width: 45px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.top > .nav {
+    width: 560px;
+    height: 100%;
+}
+
+.top > .nav > ul {
+    width: 490px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top > .nav > ul > .currentPage {
+    background-color: #ef4238;
+    color: #fff
+}
+
+
+.top > .nav > ul > li {
+    width: 70px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.top > .nav > ul > li:hover {
+    color: #ef4238;
+}
+
+.top > .app {
+    width: 135px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.top > .app > img {
+    width: 15px;
+    /*height: 100%;*/
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAYCAYAAAAlBadpAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAAAaBJREFUOBHtlD1uAjEQhW3v8qNAgG7vE6WMcgqOQQEVl+AUUUpyIKgQQgGW9W7e59gIFFIkXaRYGtl+8954xvLYTiaTJ+/9whhTyIy1lunmaJom4assy8Z5VVWLdrtdlGXp5dnJ7AUpkUNQ4aj7kb/IdVJxPB69c+650+ksN5vN3Wg0qs+quBDuhL+L+yh7Eb9ATNQdwul0WoqLfTvEWR4Oh500QwdLC8uJrOUEo/Ari7iBBx9uEFNKSlUk6vpiEQ+8dCdBTJTfjH/xD2/tL18Yr42HT8l6SVfPUlDYRzzw4us8P8+GjoliOurW8wydBi+2psnrujbaDGg1RQ8tqX6lt6+G+j1LLQkfXQ5DvWm1eVWrbbvdbko7u1B74Y38HDqAzyKINYe2FDikHvYKRhkEaoTfX+D4KctySSwCQCr6zyptH+bzeV/7gpm9viuPPwmRICZ6rcjMDEtas9nM7vf7MEuEO/jjzOVZ0l61Wq3idDoBODkznfIm2/Z6Pac6wQdoP7M1tfhO/BXksRZrhDKyCmXodC6mzyw8pYsP4RrdBxB3EDlFa5aPAAAAAElFTkSuQmCC") no-repeat center center;
+}
+
+.top > .app > .appMa {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.top > .search {
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top > .search > .searchText {
+    width: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.top > .search > .searchText > .text {
+    width: 220px;
+    height: 40px;
+    border-radius: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: #faf8fa;
+    color: #333;
+    list-style: none;
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.top > .search > .searchText > .doSearch {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    border-radius: 30px;
+    background-color: #ef4238;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAQlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////8IX9KGAAAAFXRSTlMA+Y/XljcvKwbekR/z5MoeDAq7vWFffapXAAAAlElEQVQ4y+3S3QrDIAwFYBNNf6y1uu28/6sOcdDdaITdrNBzpfCBSYy5c5HMbIkszwpbHD5xueseIC8piSc8lw502Kd6mna4Tn1ExVVJ1K6T4c+LBzehhZwXgW1CwvLVGGgMJoSfntab0cejD1z5QpachQlAPIaWAsB6KGsWyprFKvVsa5HbqIxmUAYzJGN4mTv/nje3wQeTZXOUBwAAAABJRU5ErkJggg==");
+    cursor: pointer;
+    border: none;
+}
+
+.top > .search > .user {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.top > .search > .user > .user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}

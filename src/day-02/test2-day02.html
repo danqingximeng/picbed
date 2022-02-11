@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test2-day02</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        #app {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input v-model="username" @change="changeName" type="text" placeholder="请输入账号">
+    <input v-model="password" @change="changePassword" type="password" placeholder="请输入密码">
+    <input type="button" value="点击登陆">
+</div>
+</body>
+</html>
+
+
+<script>
+    var myApp = new Vue({
+        el: "#app",
+        data: {
+            username: "",
+            password: ""
+        },
+        methods: {
+            changeName: function () {
+                const regExp = /^[a-zA-Z0-9_-]{4,16}$/;
+                if (! regExp.test(this.username)) {
+                    /*此时的this是当前的*/
+                    alert("输入的账号不符合规范")
+                }else{
+                    alert("账号正确")
+                }
+            },
+            changePassword: function () {
+                const regExp = /^.*(?=.{6,})(?=.*\d)(?=.*[a-z]).*$/;
+                if (! regExp.test(this.password)){
+                    alert("输入的密码不符合规范")
+                }else{
+                    alert("密码正确")
+                }
+            }
+        }
+    })
+</script>

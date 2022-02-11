@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.main.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<div id="main">
+    <header class="publicTop">
+        <iframe frameborder="0" width="100%" height="100%" src="top.html"></iframe>
+    </header>
+    <main class="content">
+        <article class="content-main">
+            <section class="being-shown">
+                <strong class="title">
+                    <span style="font-size: 26px">正在热映（44部）</span>
+                    <span style="font-size: 14px">全部></span>
+                </strong>
+                <ul>
+                    <li @click="goDetails(item.id)" v-for="item in movieList">
+                        <div class="movieInfo">
+                            <img v-bind:alt="item.movieName" class="movieImg" v-bind:src="imgPath + item.movieImgPath">
+                            <div class="info">
+                                <div class="movieName">
+                                    {{item.movieName}}
+                                </div>
+                                <div class="score">
+                                    {{item.moviePlayingScore}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ticketBuy">
+                            {{ticketBuy}}
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </article>
+        <div class="split"></div>
+        <aside class="content-aside">
+            <section class="movieFareToday">
+                <h2 class="title">
+                    今日票房
+                </h2>
+                <div @click="goDetails(movieList[4].id)" class="first">
+                    <div class="first-img-info">
+                        <img v-bind:alt="movieList[4].movieName" class="first-img"
+                             v-bind:src="'../img/maoYanImg/'+movieList[4].movieImgPath">
+                        <img alt="first-cup-img" class="first-cup-img"
+                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAaCAYAAACzdqxAAAAABmJLR0QA/wD/AP+gvaeTAAAC4ElEQVRIx92VTYscVRSGn1P39qS6E7vbEZ1ROjMxaTMoImHETIQoRHAjbrIw4HYWwa2/wJ+QVUAkiDshwiyMDEgkYVT8jE0WYcJAhCQ9JKOmp6e/UlXdde/JotXY89GtkSz0QEFRdc9zTr3vPXWl/toR5SFE8DCg/02w3fxAvUeNQa0FZES6ImmKOIcEwc5g9R7dd4DsW29jpqaRbHY4NopwN28QffIxXP95AH7/ThUNQ3LzJ8E5kqWL2NIUmQPPbHvZ0hTJ0kVwjtz8STQMQXUbMECYw0xMEp9bwK/dAhkihQh+7RbxuQXMxCSEuSHmpT200yGYfApNEvB+Z7D3aJL013Y6kPZ2AIsg7RbJ0gXC4ycw+8tor7uzvr0uZn+Z8PgJkqULSLs18IUD5okIvcVP0W5CZvYwrlolODgDdtPmSVNctYotHyQ5v0j6xecEm2STLSOtincOtRmkUCQ7/w7ZN96EPxz3nmjxM6IP30cbG0jaIzBmix9bB0SEwFoMSlC/Q3TmNEnl0p+vk8olojOnCep3+mus3dbk4ZMXGKReI144i8YxGsfEC2eReg0CMzTVMiLEWNzKMn69BoBbWSYwI9NGg/Eebbdwa7f7FrRb/W1o/kXHCuj009jyDEGh2E84egx3bQVZvTn0TzK8YxEkl0OjDp2PPugXcw7J5fqGqT4YWFTRq1dQ1fsM+b3gCJ3/lnkPEv+DE+SvoeBT1Wbi9EbTpZcB8sYe2mVk2orkZUhjW8BONeqq/tJx/sp6r1dZjbs//NRsL39db/4KcPTR/BMv5vc8VwrHDo9nMrO7TfD8mMiEERk4bqR2bC5JlUbk/bVGmlZ+66Y/Xu3cvVxptqvnaxsbpXCX/26jOVD8SDHPapwErz9WLM7m9+x9dnfu0ONj9qWCtbPZIChboSDfzL3wXjXufv9to7Xy1Xrz9qvjhfjU9dV/pOe7+0p8ud4IXxnPP/ly4ZGZveHY3D3KzjdbTNAgKwAAAABJRU5ErkJggg==">
+                    </div>
+                    <div class="first-info">
+                        <span style="font-size: 18px; color: #333;">{{movieList[4].movieName}}</span>
+                        <span style="font-size: 14px; color: #ef4238">{{movieList[4].movieFareToday}}</span>
+                    </div>
+                </div>
+                <ul>
+                    <li @click="goDetails(item.id)" v-for="(item,index) in movieList.slice(0,4)">
+                        <div>
+                            <span v-bind:class="{'rank-red':(index === 0 || index === 1),'rank-grey':(index === 2 || index === 3)}"><i>{{index + 2}}</i></span>
+                            <span class="name">{{item.movieName}}</span>
+                        </div>
+                        <span class="fare">{{item.movieFareToday}}</span>
+                    </li>
+                </ul>
+                <div class="bottom">
+                    <h3>今日大盘</h3>
+                    <div class="box">
+                        <div class="fare">
+                            <span class="num">2121.1<span class="more">万</span></span>
+                            <span class="more">查看更多 ></span>
+                        </div>
+                        <div class="info">
+                            <span>背景时间<time>16:22:29</time></span>
+                            <span>猫眼专业版实时票房数据</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </main>
+    <footer>
+
+    </footer>
+</div>
+<script>
+    new Vue({
+        el: "#main",
+        data: {
+            imgPath: "../img/maoYanImg/",
+            ticketBuy: "购买",
+            movieList: []
+        },
+        methods: {
+            goDetails: function (id) {
+                //跳转
+                location.href = "details.html?id=" + id;
+            },
+            getMovieList: function () {
+                axios.get("http://124.222.57.148:8088/movie/")
+                    .then((result) => {
+                        console.log(result);
+                        this.movieList = result.data;
+                    })
+                    .catch((error) => {
+
+                    })
+            }
+        },
+        created() {
+            this.getMovieList();
+        }
+    })
+</script>
+</body>
+</html>

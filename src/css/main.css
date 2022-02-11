@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.publicTop {
+    width: 100%;
+    height: 82px;
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.content {
+    width: 1200px;
+    margin-top: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content > .content-main {
+    width: 760px;
+    height: 100%;
+}
+
+.content > .content-main > .being-shown {
+    width: 760px;
+    height: 600px;
+}
+
+.content > .content-main > .being-shown > .title {
+    width: 730px;
+    height: 10%;
+    margin-bottom: 10px;
+    color: #ef4238;
+    display: flex;
+    text-align: end;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content > .content-main > .being-shown > ul {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.content > .content-main > .being-shown > ul > li {
+    width: 25%;
+    height: 50%;
+    position: relative;
+}
+
+.content > .content-main > .being-shown > ul > li > .movieInfo {
+    width: 160px;
+    height: 220px;
+    position: relative;
+    cursor: pointer;
+}
+
+.content > .content-main > .being-shown > ul > li > .movieInfo > .info {
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAABQCAMAAACpg44GAAAAbFBMVEUiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiK2HsfSAAAAJHRSTlPMxr63q6OahzclHRULBgHCsZOOf3p1cGtmYVxXUk1IQz4wLBAszz8hAAAAhklEQVRo3u3OxY0DAAADsBxDmZn337FTVPIjnsAZ4/zgCOcHhzg/+MBlgPOD/zg/+Ifzg3dcbrj84vzgFZcLLmdcTrgccTngssdlh8sWlw0ua1xWuCxxWeDyg/ODc1xmuHzj/OAXzg9+4vzgFJcPnB98x/nBCS5vOD9YVVVVVVVVVVVVr/IEUdzLcLhtP2AAAAAASUVORK5CYII=");
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content > .content-main > .being-shown > ul > li > .movieInfo > .info > .movieName {
+    width: 70%;
+    height: 100%;
+    /* 超出的部分隐藏省略号的形式出现 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+.content > .content-main > .being-shown > ul > li > .movieInfo > .info > .score {
+    padding-bottom: 5px;
+    padding-right: 2px;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: #ffb400;
+}
+
+.content > .content-main > .being-shown > ul > li > .ticketBuy {
+    width: 160px;
+    height: 30px;
+    position: absolute;
+    left: -1px;
+    color: #ef4238;
+    text-align: center;
+    border-bottom: 1px solid #e5e3e3;
+    border-left: 1px solid #e5e3e3;
+    border-right: 1px solid #e5e3e3;
+}
+
+.content > .content-main > .being-shown > ul > li > .ticketBuy:hover {
+    background-color: #ef4238;
+    color: white;
+    cursor: pointer;
+}
+
+
+.content > .split {
+    width: 50px;
+    height: 100%;
+}
+
+.content > .content-aside {
+    width: 360px;
+    height: 100%;
+}
+
+.content > .content-aside > .movieFareToday > .title {
+    height: auto;
+    font-size: 26px;
+}
+
+.content > .content-aside > .movieFareToday > .title {
+    width: 100%;
+    height: 60px;
+    color: #ef4238;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.content > .content-aside > .movieFareToday > .first {
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid #e5e3e3;
+    border-right: 1px solid #e5e3e3;
+    border-bottom: 1px solid #e5e3e3;
+    display: flex;
+    cursor: pointer;
+}
+
+.content > .content-aside > .movieFareToday > .first:hover {
+    background-color: #f8f8f8;
+}
+
+.content > .content-aside > .movieFareToday > .first > .first-img-info {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.content > .content-aside > .movieFareToday > .first > .first-img-info > .first-img {
+    width: 120px;
+    height: 165px;
+    margin-top: -40px;
+}
+
+
+.content > .content-aside > .movieFareToday > .first > .first-img-info > .first-cup-img {
+    width: 22px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAaCAYAAACzdqxAAAAABmJLR0QA/wD/AP+gvaeTAAAC4ElEQVRIx92VTYscVRSGn1P39qS6E7vbEZ1ROjMxaTMoImHETIQoRHAjbrIw4HYWwa2/wJ+QVUAkiDshwiyMDEgkYVT8jE0WYcJAhCQ9JKOmp6e/UlXdde/JotXY89GtkSz0QEFRdc9zTr3vPXWl/toR5SFE8DCg/02w3fxAvUeNQa0FZES6ImmKOIcEwc5g9R7dd4DsW29jpqaRbHY4NopwN28QffIxXP95AH7/ThUNQ3LzJ8E5kqWL2NIUmQPPbHvZ0hTJ0kVwjtz8STQMQXUbMECYw0xMEp9bwK/dAhkihQh+7RbxuQXMxCSEuSHmpT200yGYfApNEvB+Z7D3aJL013Y6kPZ2AIsg7RbJ0gXC4ycw+8tor7uzvr0uZn+Z8PgJkqULSLs18IUD5okIvcVP0W5CZvYwrlolODgDdtPmSVNctYotHyQ5v0j6xecEm2STLSOtincOtRmkUCQ7/w7ZN96EPxz3nmjxM6IP30cbG0jaIzBmix9bB0SEwFoMSlC/Q3TmNEnl0p+vk8olojOnCep3+mus3dbk4ZMXGKReI144i8YxGsfEC2eReg0CMzTVMiLEWNzKMn69BoBbWSYwI9NGg/Eebbdwa7f7FrRb/W1o/kXHCuj009jyDEGh2E84egx3bQVZvTn0TzK8YxEkl0OjDp2PPugXcw7J5fqGqT4YWFTRq1dQ1fsM+b3gCJ3/lnkPEv+DE+SvoeBT1Wbi9EbTpZcB8sYe2mVk2orkZUhjW8BONeqq/tJx/sp6r1dZjbs//NRsL39db/4KcPTR/BMv5vc8VwrHDo9nMrO7TfD8mMiEERk4bqR2bC5JlUbk/bVGmlZ+66Y/Xu3cvVxptqvnaxsbpXCX/26jOVD8SDHPapwErz9WLM7m9+x9dnfu0ONj9qWCtbPZIChboSDfzL3wXjXufv9to7Xy1Xrz9qvjhfjU9dV/pOe7+0p8ud4IXxnPP/ly4ZGZveHY3D3KzjdbTNAgKwAAAABJRU5ErkJggg==");
+}
+
+.content > .content-aside > .movieFareToday > .first > .first-info {
+    padding: 0 0 0 10px;
+    width: 240px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.content > .content-aside > .movieFareToday > ul {
+    margin-top: 15px;
+}
+
+.content > .content-aside > .movieFareToday > ul > li {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.content > .content-aside > .movieFareToday > ul > li:hover{
+    background-color: #f8f8f8;
+}
+
+.content > .content-aside > .movieFareToday > ul > li > div {
+    padding: 0 10px;
+}
+
+.content > .content-aside > .movieFareToday > ul > li > div > .rank-red {
+    height: 100%;
+    color: #ef4238;
+    font-size: 18px;
+}
+.content > .content-aside > .movieFareToday > ul > li > div > .rank-grey {
+    height: 100%;
+    font-size: 18px;
+    color: #999999;
+}
+
+.content > .content-aside > .movieFareToday > ul > li > div > .name {
+    max-width: 190px;
+    overflow: hidden;
+    margin-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+    color: #333;
+}
+
+.content > .content-aside > .movieFareToday > ul > li > .fare {
+    color: #ef4238;
+    font-size: 14px;
+}
+
+.content > .content-aside > .movieFareToday > .bottom {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.content > .content-aside > .movieFareToday > .bottom > h3 {
+    padding: 10px;
+    width: 20px;
+    height: 90px;
+    background-color: #ef4238;
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: center;
+}
+
+.content > .content-aside > .movieFareToday > .bottom > .box {
+    width: 320px;
+    height: 110px;
+    background-color: #fdfdfd;
+    border: 1px solid #efefef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content > .content-aside > .movieFareToday > .bottom > .box .fare {
+    width: 300px;
+    height: 40px;
+    color: #ef4238;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content > .content-aside > .movieFareToday > .bottom > .box .fare > .num {
+    font-size: 30px;
+}
+
+.content > .content-aside > .movieFareToday > .bottom > .box .fare > .more {
+    font-size: 14px;
+}
+
+.content > .content-aside > .movieFareToday > .bottom > .box .info {
+    width: 300px;
+    height: 20px;
+    font-size: 14px;
+    color: #999999;
+    display: flex;
+    justify-content: space-between;
+}
